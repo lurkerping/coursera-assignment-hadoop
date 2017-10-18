@@ -31,7 +31,7 @@ public class SparkFun {
             String[] temp = v1.split("----");
             return temp.length == 2 ? temp[1] : null;
         });
-        JavaPairRDD<String, Integer> pairRDD = pwdRDD.mapToPair((PairFunction) o -> new Tuple2(o, 1));
+        JavaPairRDD<String, Integer> pairRDD = pwdRDD.mapToPair((PairFunction<String, String, Integer>) o -> new Tuple2<>(o, 1));
         JavaPairRDD<String, Integer> sumedPairRDD = pairRDD.reduceByKey((Function2<Integer, Integer, Integer>) (v1, v2) -> v1 + v2);
         for (Tuple2<String, Integer> tuple : sumedPairRDD.collect()) {
             if (tuple._2 > 100) {
