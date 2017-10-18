@@ -14,6 +14,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <hadoop.version>2.7.3</hadoop.version>
+        <spark-core_2.10.version>2.1.0</spark-core_2.10.version>
     </properties>
 
 
@@ -22,6 +23,11 @@
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-client</artifactId>
             <version>${hadoop.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_2.10</artifactId>
+            <version>${spark-core_2.10.version}</version>
         </dependency>
 
         <!-- belows are for unit test-->
